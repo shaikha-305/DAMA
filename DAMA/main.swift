@@ -7,8 +7,8 @@
 //
 
 import Foundation
-var one = "♟"
-var two = "♙"
+var white = "♟"
+var black = "♙"
 enum Type{
     case none
     case white
@@ -26,102 +26,6 @@ struct Checker{
     var type: Type
 }
 
-var checkers: [Checker] = [
-    Checker(location: 1, type: .none),
-    Checker(location: 2, type: .none),
-    Checker(location: 3, type: .none),
-    Checker(location: 4, type: .none),
-    Checker(location: 5, type: .none),
-    Checker(location: 6, type: .none),
-    Checker(location: 7, type: .none),
-    Checker(location: 8, type: .none),
-    Checker(location: 9, type: .black),
-    Checker(location: 10, type: .black),
-    Checker(location: 11, type: .black),
-    Checker(location: 12, type: .black),
-    Checker(location: 13, type: .black),
-    Checker(location: 14, type: .black),
-    Checker(location: 15, type: .black),
-    Checker(location: 16, type: .black),
-    Checker(location: 17, type: .black),
-    Checker(location: 18, type: .black),
-    Checker(location: 19, type: .black),
-    Checker(location: 20, type: .black),
-    Checker(location: 21, type: .black),
-    Checker(location: 22, type: .black),
-    Checker(location: 23, type: .black),
-    Checker(location: 24, type: .black),
-    Checker(location: 25, type: .none),
-    Checker(location: 26, type: .none),
-    Checker(location: 27, type: .none),
-    Checker(location: 28, type: .none),
-    Checker(location: 29, type: .none),
-    Checker(location: 30, type: .none),
-    Checker(location: 31, type: .none),
-    Checker(location: 32, type: .none),
-    Checker(location: 33, type: .none),
-    Checker(location: 34, type: .none),
-    Checker(location: 35, type: .none),
-    Checker(location: 36, type: .none),
-    Checker(location: 37, type: .none),
-    Checker(location: 38, type: .none),
-    Checker(location: 39, type: .none),
-    Checker(location: 40, type: .none),
-    Checker(location: 41, type: .white),
-    Checker(location: 42, type: .white),
-    Checker(location: 43, type: .white),
-    Checker(location: 44, type: .white),
-    Checker(location: 45, type: .white),
-    Checker(location: 46, type: .white),
-    Checker(location: 47, type: .white),
-    Checker(location: 48, type: .white),
-    Checker(location: 49, type: .white),
-    Checker(location: 50, type: .white),
-    Checker(location: 51, type: .white),
-    Checker(location: 52, type: .white),
-    Checker(location: 53, type: .white),
-    Checker(location: 54, type: .white),
-    Checker(location: 55, type: .white),
-    Checker(location: 56, type: .white),
-    Checker(location: 57, type: .none),
-    Checker(location: 58, type: .none),
-    Checker(location: 59, type: .none),
-    Checker(location: 60, type: .none),
-    Checker(location: 61, type: .none),
-    Checker(location: 62, type: .none),
-    Checker(location: 63, type: .none),
-    Checker(location: 64, type: .none)
-]
-func printTable(){
-    for i in checkers{
-        if i.location == 1{
-            print("-----------------------------------------------------------------")
-        }
-        if i.location == 1 || i.location == 2 || i.location == 3 || i.location == 4 || i.location == 5 || i.location == 6 || i.location == 7 {
-            print("| \(i.location)    \(i.type.emoji)", terminator: "")
-        }else if i.location == 8 || i.location == 16 || i.location == 24 || i.location == 32 || i.location == 40 || i.location == 48 || i.location == 56 || i.location == 64{
-            print("| \(i.location)   \(i.type.emoji) |", terminator: "\n")
-            print("-----------------------------------------------------------------")
-        }else if i.location == 9 || i.location == 10 || i.location == 11 || i.location == 12 || i.location == 13 || i.location == 14 || i.location == 15 {
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 17 || i.location == 18 || i.location == 19 || i.location == 20 || i.location == 21 || i.location == 22 || i.location == 23{
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 25 || i.location == 26 || i.location == 27 || i.location == 28 || i.location == 29 || i.location == 30 || i.location == 31 {
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 33 || i.location == 34 || i.location == 35 || i.location == 36 || i.location == 37 || i.location == 38 || i.location == 39{
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 41 || i.location == 42 || i.location == 43 || i.location == 44 || i.location == 45 || i.location == 46 || i.location == 47{
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 49 || i.location == 50 || i.location == 51 || i.location == 52 || i.location == 53 || i.location == 54 || i.location == 55{
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }else if i.location == 57 || i.location == 58 || i.location == 59 || i.location == 60 || i.location == 61 || i.location == 62 || i.location == 63{
-            print("| \(i.location)   \(i.type.emoji)", terminator: "")
-        }
-        
-    }
-}
-printTable()
-var input = Int(readLine()!)!
 func validateMove(player: Int){
     let location = checkers[player-1].location
     var playerr = checkers[player-1].location
@@ -171,6 +75,8 @@ func validateMove(player: Int){
                         print("\(location) can move to \(f+1), write the location number to move")
                     }else if checkers[r].type.emoji == " "{
                         print("\(location) can move to \(r+1), write the location number to move")
+                    }else{
+                        print("this checker can't move :(")
                     }
                 }
             }
@@ -221,10 +127,10 @@ func validateMove(player: Int){
                 print("\(location) can move to \(l+1), write the location number to move")
             }
         }else if (player-1) % 8 == 0 && player != 49 && player != 9{
-            if checkers[b].type.emoji == " " && checkers[f].type.emoji == " "{
-                print("\(location) can move to \(b+1), \(f+1) write the location number to move")
-            }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " "{
+             if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " "{
                 print("\(location) can move to \(b+1), \(f+1) and \(r+1) write the location number to move")
+            }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " "{
+                print("\(location) can move to \(b+1), \(f+1) write the location number to move")
             }else if checkers[b].type.emoji == " " && checkers[r].type.emoji == " "{
                 print("\(location) can move to \(b+1), \(r+1) write the location number to move")
             }else if checkers[f].type.emoji == " " && checkers[r].type.emoji == " "{
@@ -236,12 +142,86 @@ func validateMove(player: Int){
             }else if checkers[r].type.emoji == " " && checkers[f].type.emoji != " " && checkers[b].type.emoji != " "{
                 print("\(location) can move to \(r+1), write the location number to move")
             }
+        }else{
+            if checkers[player-1].type == .white{
+                if player != 49 && player != 50 && player != 51 && player != 52 && player != 53 && player != 54 && player != 55 && player != 56{
+                    if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(f+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(f+1) and \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(f+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(f+1) and \(l+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(f+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(l+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(f+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(f+1), \(l+1) write the location number to move")
+                    }else if checkers[l].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(l+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[r].type.emoji != " " && checkers[b].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(f+1), write the location number to move")
+                    }else if checkers[r].type.emoji == " " && checkers[f].type.emoji != " " && checkers[b].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(r+1), write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[r].type.emoji != " " && checkers[f].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), write the location number to move")
+                    }else if checkers[l].type.emoji == " " && checkers[r].type.emoji != " " && checkers[b].type.emoji != " " && checkers[f].type.emoji != " "{
+                        print("\(location) can move to \(l+1), write the location number to move")
+                    }else {
+                        print("this checker can't move :(")
+                    }
+                }
+            }else if checkers[player-1].type == .black{
+                if player != 9 && player != 10 && player != 11 && player != 12 && player != 13 && player != 14 && player != 15 && player != 16{
+                    if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(f+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(f+1) and \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(f+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji == " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(l+1) and \(r+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " " && checkers[l].type.emoji == " " && checkers[r].type.emoji != " "{
+                        print("\(location) can move to \(b+1), \(f+1) and \(l+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[f].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(f+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(l+1) write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(b+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(f+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[l].type.emoji == " "{
+                        print("\(location) can move to \(f+1), \(l+1) write the location number to move")
+                    }else if checkers[l].type.emoji == " " && checkers[r].type.emoji == " "{
+                        print("\(location) can move to \(l+1), \(r+1) write the location number to move")
+                    }else if checkers[f].type.emoji == " " && checkers[r].type.emoji != " " && checkers[b].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(f+1), write the location number to move")
+                    }else if checkers[r].type.emoji == " " && checkers[f].type.emoji != " " && checkers[b].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(r+1), write the location number to move")
+                    }else if checkers[b].type.emoji == " " && checkers[r].type.emoji != " " && checkers[f].type.emoji != " " && checkers[l].type.emoji != " "{
+                        print("\(location) can move to \(b+1), write the location number to move")
+                    }else if checkers[l].type.emoji == " " && checkers[r].type.emoji != " " && checkers[b].type.emoji != " " && checkers[f].type.emoji != " "{
+                        print("\(location) can move to \(l+1), write the location number to move")
+                    }else {
+                        print("this checker can't move :(")
+                    }
+                }
+            }
         }
     }
     
 }
-
-validateMove(player: input)
+var input: Int
+//validateMove(player: input)
 
 func canMove(player: Int)->Bool{
     if checkers[player-1].type == Type.black || checkers[player-1].type == Type.white{
@@ -251,10 +231,26 @@ func canMove(player: Int)->Bool{
     }
 }
 
-while canMove(player: input){
-    
+//while canMove(player: input){
+//
+//}
+printTable()
+var player = white
+for i in 0..<65{
+    print("How to play? Please type a number for a piece to move")
+    input = Int(readLine()!)!
+    if canMove(player: input){
+        validateMove(player: input)
+        var movement = Int(readLine()!)!
+        checkers[movement-1].type = checkers[input-1].type
+        checkers[input-1].type = .none
+        printTable()
+    }else {
+        print("⚠️ wrong input")
+        print("How to play? Please type a number for a piece to move")
+        printTable()
+    }
 }
-
 
 
 
@@ -314,7 +310,7 @@ while canMove(player: input){
 //}
 func printInstructions(){
     print("")
-    print("How to play? Please input a number for a piece to move like '9R' as an example of 'move piece 9 to the right'.", "\n- for the first round you can only choose 9->24 for filled player or 41->56 for unfilled player and you can move forward and backward only: 'F' or 'B'.")
+    print("How to play? Please type a number for a piece to move")
 }
 
 //printInstructions()
